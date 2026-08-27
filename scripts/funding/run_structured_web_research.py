@@ -55,7 +55,8 @@ RESPONSES_REASONING_EFFORT = "medium"
 # That default is a per-run ceiling, so across a 300-domain cohort it is a
 # runaway rather than a budget. Set it explicitly and low; the response reports
 # creditsUsed, which is what the pricing row is derived from.
-FIRECRAWL_MODEL = "spark-1-mini"
+FIRECRAWL_SPARK_1_MINI_MODEL = "spark-1-mini"
+FIRECRAWL_SPARK_2_MODEL = "spark-2"
 FIRECRAWL_MAX_CREDITS = 1500
 # A 10-case smoke run measured a 136s median, and two runs exceeded the 180s
 # default and were recorded as timeouts that were ours, not the vendor's.
@@ -223,7 +224,9 @@ def responses_output(body: dict[str, Any]) -> tuple[str | None, list[str]]:
     return text, list(dict.fromkeys(citations))
 
 
-def firecrawl(case: dict[str, str]) -> tuple[dict[str, Any], dict[str, Any]]:
+def firecrawl(
+    case: dict[str, str], model: str = FIRECRAWL_SPARK_1_MINI_MODEL
+) -> tuple[dict[str, Any], dict[str, Any]]:
     """Firecrawl Agent, same instruction and schema as every other arm.
 
     The endpoint is synchronous by default but may hand back a job id under
@@ -232,7 +235,7 @@ def firecrawl(case: dict[str, str]) -> tuple[dict[str, Any], dict[str, Any]]:
     headers = {"Authorization": f"Bearer {os.environ['FIRECRAWL_API_KEY']}", "Content-Type": "application/json"}
     payload = {
         "prompt": instruction(case),
-        "model": FIRECRAWL_MODEL,
+        "model": model,
         "schema": OUTPUT_SCHEMA,
         "maxCredits": FIRECRAWL_MAX_CREDITS,
     }
@@ -267,7 +270,7 @@ def firecrawl(case: dict[str, str]) -> tuple[dict[str, Any], dict[str, Any]]:
         inner = next(iter(data.values()))
         if isinstance(inner, dict):
             data = inner
-    return data, {"response": body, "credits_used": body.get("creditsUsed"), "model": FIRECRAWL_MODEL}
+    return data, {"response": body, "credits_used": body.get("creditsUsed"), "model": model}
 
 
 def seltz_payload(case: dict[str, str], scope: str, json_schema: bool) -> dict[str, Any]:
@@ -442,6 +445,7 @@ PROVIDERS = {
     "parallel": parallel,
     "parallel-responses-medium": parallel_responses,
     "firecrawl": firecrawl,
+    "firecrawl-spark-2": partial(firecrawl, model=FIRECRAWL_SPARK_2_MODEL),
     "seltz-companies": partial(seltz, scope="companies"),
     "seltz-news": partial(seltz, scope="news"),
 }
@@ -449,14 +453,15 @@ REQUIRED_ENV = {
     "exa": "EXA_API_KEY", "exa-instant": "EXA_API_KEY", "exa-agent": "EXA_API_KEY",
     "parallel": "PARALLEL_API_KEY",
     "parallel-responses-medium": "PARALLEL_API_KEY",
-    "firecrawl": "FIRECRAWL_API_KEY",
+    "firecrawl": "FIRECRAWL_API_KEY", "firecrawl-spark-2": "FIRECRAWL_API_KEY",
     "seltz-companies": "SELTZ_API_KEY", "seltz-news": "SELTZ_API_KEY",
 }
 DEFAULT_CONCURRENCY = {
     "exa": 12, "exa-instant": 12, "parallel": 8, "parallel-responses-medium": 8,
     # Agentic search runs are long and metered; keep these low until a smoke
     # test shows what each vendor tolerates.
-    "exa-agent": 4, "firecrawl": 4, "seltz-companies": 6, "seltz-news": 6,
+    "exa-agent": 4, "firecrawl": 4, "firecrawl-spark-2": 4,
+    "seltz-companies": 6, "seltz-news": 6,
 }
 
 
@@ -517,7 +522,10 @@ def main() -> int:
     parser.add_argument("--concurrency", type=int, default=None)
     parser.add_argument("--limit", type=int, help="Run only the first N cases (for a smoke test).")
     parser.add_argument("--no-resume", action="store_true", help="Re-run even saved successful cases.")
+    parser.add_argument("--confirm-paid", action="store_true", help="Required before any live provider API call.")
     args = parser.parse_args()
+    if not args.confirm_paid:
+        parser.error("live provider calls require --confirm-paid")
     required_key = REQUIRED_ENV[args.provider]
     if not os.environ.get(required_key):
         raise RuntimeError(f"{required_key} is required")

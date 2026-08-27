@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from smoke_test_funding_providers import (
+from funding.smoke_test_funding_providers import (
     DOMAINS as SMOKE_DOMAINS,
     OUTPUT as SMOKE_OUTPUT,
     PROVIDERS,
@@ -39,8 +39,8 @@ RAW_DIR = RUN_DIR / "raw"
 SUMMARY = RUN_DIR / "summary.json"
 MANIFEST = RUN_DIR / "manifest.json"
 
-# Keep the known documented Ocean limit safely below 60 requests/minute.
-MIN_START_INTERVAL_SECONDS = {"ocean": 1.1}
+# Keep documented provider limits safely below their requests-per-minute caps.
+MIN_START_INTERVAL_SECONDS = {"ocean": 1.1, "fundable": 0.35}
 WRITE_LOCK = threading.Lock()
 
 
@@ -119,6 +119,13 @@ def status_for(provider: str, raw: dict[str, Any]) -> tuple[str, str | None]:
         return "not_found", "no funding enrichment"
     if provider == "company-enrich" and not response.get("id"):
         return "not_found", "no company"
+    if provider == "fundable" and not ((response.get("data") or {}).get("company")):
+        error = response.get("error")
+        if isinstance(error, dict):
+            return "not_found", error.get("message") or "no company"
+        if isinstance(error, str) and error:
+            return "not_found", error
+        return "not_found", "no company"
     return "ok", None
 
 
@@ -174,6 +181,19 @@ def normalize(provider: str, raw: dict[str, Any]) -> dict[str, Any]:
         result["latest_date"] = result["latest_date"] or item.get("funding_date")
         result["total_raised"] = item.get("total_funding")
         return result
+    if provider == "fundable":
+        company = (response.get("data") or {}).get("company") or {}
+        latest_deal = company.get("latest_deal") or {}
+        stage = latest_deal.get("type")
+        if stage and latest_deal.get("pre"):
+            stage = f"pre {stage}"
+        return {
+            "latest_stage": stage,
+            "latest_date": latest_deal.get("date"),
+            "latest_amount": latest_deal.get("total_round_raised"),
+            "total_raised": company.get("total_raised"),
+            "round_count": company.get("num_funding_rounds"),
+        }
     raise KeyError(provider)
 
 

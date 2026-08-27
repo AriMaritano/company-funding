@@ -28,6 +28,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = ROOT / "data/latest-funding.json"
 INPUTS = ROOT / "data/funding/company-funding-inputs-v1.csv"
+PRICING = ROOT / "data/funding/pricing-v1.json"
 FIELDS = {"latest_stage", "latest_date", "latest_amount", "total_raised", "round_count"}
 METRICS = {"stage_eligible", "stage_returned", "stage_correct", "llm_judge"}
 EXPORT_PROVIDERS = {"crunchbase", "harmonic"}
@@ -100,6 +101,12 @@ def main() -> int:
     check_leaderboard("enrichment", e_runs, e_rows)
     assert enrichment["case_count"] == len(e_cases)
 
+    pricing = json.loads(PRICING.read_text(encoding="utf-8"))
+    pricing_slugs = [row["provider_slug"] for row in pricing["providers"]]
+    assert len(pricing_slugs) == len(set(pricing_slugs)), "pricing contains duplicate provider slugs"
+    assert set(pricing_slugs) == {row["provider_slug"] for row in e_rows}, \
+        "pricing roster differs from the enrichment leaderboard"
+
     # The frozen input list must still describe the enrichment cohort it seeded.
     with INPUTS.open(encoding="utf-8", newline="") as handle:
         inputs = list(csv.DictReader(handle))
@@ -109,6 +116,8 @@ def main() -> int:
         f"{len(input_domains - case_domains)} frozen input domains are absent from the enrichment board"
 
     freshness = boards["freshness"]
+    manifest_paths = [entry["path"] for entry in freshness["snapshots"]]
+    assert len(manifest_paths) == len(set(manifest_paths)), "freshness manifest contains duplicate snapshot paths"
     pooled_runs: list[dict] = []
     for entry in freshness["snapshots"]:
         path = ROOT / entry["path"]

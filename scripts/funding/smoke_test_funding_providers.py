@@ -128,6 +128,14 @@ def company_enrich(domain: str) -> dict[str, Any]:
     )
 
 
+def fundable(domain: str) -> dict[str, Any]:
+    return request(
+        "GET", "https://www.tryfundable.ai/api/v1/company",
+        headers={"Authorization": f"Bearer {os.environ['FUNDABLE_API_KEY']}", "Accept": "application/json"},
+        params={"domain": domain},
+    )
+
+
 PROVIDERS: dict[str, tuple[tuple[str, ...], Callable[[str], dict[str, Any]]]] = {
     "fiber": (("FIBER_API_KEY",), fiber),
     "predictleads": (("PREDICT_LEADS_API_KEY", "PREDICT_LEADS_API_TOKEN"), predictleads),
@@ -136,6 +144,7 @@ PROVIDERS: dict[str, tuple[tuple[str, ...], Callable[[str], dict[str, Any]]]] = 
     "ocean": (("OCEAN_API_KEY",), ocean),
     "explorium": (("EXPLORIUM_API_KEY",), explorium),
     "company-enrich": (("COMPANY_ENRICH_API_KEY",), company_enrich),
+    "fundable": (("FUNDABLE_API_KEY",), fundable),
 }
 
 
