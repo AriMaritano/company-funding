@@ -15,7 +15,7 @@ The list was frozen before provider scoring. Each freshness snapshot has its own
 `data/latest-funding.json` is `schema_version` 3.0 and contains both boards under `boards`:
 
 - `boards.enrichment` — `cases`, `runs` and `leaderboard` for rounds older than 30 days.
-- `boards.freshness` — the pooled `leaderboard` plus a `snapshots` manifest. Each entry names a dated file under `data/freshness/` holding that snapshot's own cases, runs and leaderboard. Cells live in the dated files rather than the combined one, so the combined file stays bounded as snapshots accumulate.
+- `boards.freshness` — the pooled `leaderboard` plus a `snapshots` manifest. Each entry names a unique dated file under `data/freshness/` holding that snapshot's own cases, runs and leaderboard. Original monthly snapshots retain `YYYY-MM` paths; additional cycles use `YYYY-MM-DD` so multiple snapshots in one month cannot overwrite one another. Cells live in the dated files rather than the combined one, so the combined file stays bounded as snapshots accumulate.
 
 Every leaderboard row carries `case_count` and `snapshot_count`: a provider is scored against the companies it was actually measured on, not a board-wide total. A run records only the normalized contract, status, latency where applicable, safe audit metadata, and the LLM judgment. It intentionally excludes literal vendor HTTP response bodies and source-export rows.
 

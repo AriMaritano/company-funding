@@ -5,7 +5,7 @@ Open data and reproducible runner code for the [OpenBenchmarks Company Funding B
 The benchmark is **two boards**, split on how old the round is:
 
 - **Enrichment** — rounds announced more than 30 days ago. A durable historical set that grows each cycle as freshness snapshots age into it.
-- **Freshness** — rounds announced in the trailing 30 days, as dated snapshots. Every vendor is re-run against each new snapshot, which is what exposes update lag.
+- **Freshness** — rounds announced in the trailing 30 days, as dated snapshots. The benchmark cycle re-runs every vendor against each new snapshot, which is what exposes update lag; the public artifact contains the arms that have been promoted to production for that snapshot.
 
 Finding a round announced this week and holding a correct historical record are different capabilities, and a vendor can be strong at one and weak at the other. Averaging them into one number hid that, so they are measured separately.
 
@@ -14,6 +14,10 @@ It is designed for GTM account prioritization and qualification: companies with 
 ### Denominators differ per provider, on purpose
 
 A provider is scored against the companies it was actually measured on, never a board-wide total. A vendor added later is measured on more of the enrichment cohort than one added earlier, and vendors join freshness at different snapshots. Every leaderboard row therefore carries its own `case_count` and `snapshot_count`, and the verifier asserts they reconcile against that provider's own cells.
+
+The production `2026-08-26` snapshot currently contains the newly promoted
+Firecrawl Spark 2 arm only. The other vendors were measured outside production
+but are not redistributed in this repository until their cells are promoted.
 
 ## Evaluated fields and headline metric
 
@@ -35,7 +39,7 @@ The other four fields contribute to the separate returned-data coverage metric; 
 |---|---|
 | `data/funding/company-funding-inputs-v1.csv` | Frozen enrichment input list and primary-source funding references |
 | `data/latest-funding.json` | Both boards: enrichment cases/runs/leaderboard, plus the pooled freshness leaderboard and its snapshot manifest |
-| `data/freshness/<YYYY-MM>.json` | One dated freshness snapshot: its own cases, runs and leaderboard |
+| `data/freshness/<YYYY-MM[-DD]>.json` | One dated freshness snapshot: its own cases, runs and leaderboard. Full dates allow multiple snapshots in one month while preserving the original month-only paths |
 | `data/latest-funding-v2-frozen.json` | The 2026-08-04 single-board publication, preserved unchanged so prior citations still resolve |
 | `data/funding/pricing-v1.json` | Dated public entry-tier cost assumptions used for the estimated USD cost display |
 | `scripts/funding/run_funding_benchmark.py` | Credit-safe, resumable provider runner |
@@ -46,7 +50,8 @@ The other four fields contribute to the separate returned-data coverage metric; 
 | `scripts/funding/score_funding_stage_dry_run.py` | Transparent latest-stage taxonomy and offline scoring report |
 | `scripts/funding/judge_funding_stage.py` | Exact GPT-5.6 Terra v2 judge prompt and structured-output runner |
 | `docs/company-funding/llm-judge-v2.md` | Public v2 matching policy and judge contract |
-| `scripts/build_public_snapshot.py` | Builds the normalized publication snapshot from local runner checkpoints, excluding literal API response bodies |
+| `scripts/export_llm_judged_snapshot.py` | Current schema-v3 exporter from the published benchmark database; writes both boards and collision-safe dated freshness files without literal API response bodies |
+| `scripts/build_public_snapshot.py` | Legacy schema-v1 checkpoint builder retained for reproducing the original publication; it is not the current publishing path |
 | `scripts/recompute_funding_snapshot.py` | Recomputes every metric and leaderboard row from the committed snapshot without API calls |
 | `scripts/verify_public_artifacts.py` | Zero-network integrity, cohort, and leaderboard checks |
 
@@ -66,7 +71,7 @@ The verifier checks invariants rather than fixed counts, so it keeps working as 
 
 ## Re-run live APIs
 
-Copy `.env.example` to `.env.local` and configure only the providers you intend to run. Live calls require `--confirm-paid`. Existing cells of every status are skipped unless a retry status is explicitly selected, so a restart cannot silently spend credits again.
+Copy `.env.example` to `.env.local` and configure only the providers you intend to run. Live calls require `--confirm-paid`. The endpoint runner skips existing cells of every status unless a retry status is explicitly selected. The natural-language runner skips saved successes; non-success cells are attempted again unless you preserve their checkpoint directory separately.
 
 ```bash
 PYTHONPATH=scripts .venv/bin/python scripts/funding/run_funding_benchmark.py \
@@ -85,10 +90,11 @@ PYTHONPATH=scripts .venv/bin/python scripts/funding/run_structured_web_research.
 question in natural language: `exa` and `exa-instant` (Search API at two search
 types), `exa-agent` (Agent API), `parallel` (Task API) and
 `parallel-responses-medium` (Responses API), `seltz-companies` and `seltz-news`
-(Answer API at two search scopes), and `firecrawl` (Agent API). All of them send
-the same instruction and the same output schema, so the endpoint or its one
-varied parameter is the only difference between arms; the contract tests beside
-the runner assert that.
+(Answer API at two search scopes), and `firecrawl` and `firecrawl-spark-2`
+(Agent API with Spark 1 Mini and Spark 2 respectively). All of them send the
+same instruction and the same output schema, so the endpoint or its one varied
+parameter is the only difference between arms; the contract tests beside the
+runner assert that.
 
 Exa Agent is priced per request by effort and the runner pins it. Leaving the
 API default of `effort=auto` meters up to $5 per run, which is roughly fifty
@@ -97,7 +103,9 @@ times the cost of the pinned `medium` across a 300-domain cohort.
 Firecrawl bills dynamic credits per run and the API defaults to a 2,500-credit
 ceiling per call, which is a runaway across a cohort. The runner sets an
 explicit cap and records the `creditsUsed` each run reports, which is where its
-published cost comes from.
+published cost comes from. The `firecrawl` slug remains pinned to
+`spark-1-mini`; `firecrawl-spark-2` is a separate arm pinned to `spark-2`, so a
+rerun cannot silently change the model behind an existing leaderboard row.
 
 Use `run_crustdata_funding_batch.py submit` then
 `poll` for Crustdata. Crunchbase is deliberately not rerun by a script: it
@@ -130,7 +138,7 @@ The committed snapshot contains the normalized benchmark contract for every prov
 
 ## Providers
 
-Fifteen vendors, measured across nineteen arms: a vendor with more than one
+Sixteen vendors, measured across twenty-one arms: a vendor with more than one
 endpoint is scored once per endpoint, because those endpoints have different
 accuracy, latency and price. Both boards group the arms by how they produce an
 answer, which is a reading aid rather than a scoring rule. Every arm is asked
@@ -140,7 +148,8 @@ the same question about the same companies and judged by the same policy.
 request time.
 
 - Exa (Agent API)
-- Firecrawl (Agent API)
+- Firecrawl (Agent API, Spark 1 Mini)
+- Firecrawl (Agent API, Spark 2)
 - Parallel (Task API)
 
 **Web search APIs** query an index and extract the answer from it.
@@ -159,6 +168,7 @@ request time.
 - Crustdata
 - Explorium
 - Fiber
+- Fundable
 - Harmonic (identity-audited exported dataset; no API-latency or cost score)
 - Ocean.io
 - People Data Labs

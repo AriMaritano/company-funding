@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-16",
+  "as_of": "2026-08-27",
   "currency": "USD",
   "providers": [
     {
@@ -81,6 +81,19 @@
       "rate_label": "$0.0098 / credit",
       "plan_floor": "$49/mo (5,000 credits)",
       "pricing_url": "https://companyenrich.com/pricing"
+    },
+    {
+      "provider_slug": "fundable",
+      "endpoint": "GET /api/v1/company",
+      "configuration": "domain query parameter",
+      "billing_basis": "1 credit per returned row; an unmatched domain returns no row",
+      "observed_usage": 212,
+      "usage_label": "212 returned company rows",
+      "estimated_usage_cost_usd": 10.6,
+      "rate_label": "$0.05 / credit",
+      "plan_floor": "Pay as you go; 200 starting credits, no subscription",
+      "pricing_url": "https://www.tryfundable.ai/api-access",
+      "note": "Billed per returned row, so the 88 domains Fundable could not identify on this cohort cost nothing. Usage is the 212 that did resolve. The 200 starting credits are a one-time grant and are not netted out of this figure."
     },
     {
       "provider_slug": "exa",
@@ -199,11 +212,24 @@
       "billing_basis": "Dynamic credits per agent run; observed creditsUsed",
       "observed_usage": 50615,
       "usage_label": "50,615 credits",
-      "estimated_usage_cost_usd": 42.01,
-      "rate_label": "$0.83 / 1,000 credits",
-      "plan_floor": "$83/mo (100,000 credits)",
+      "estimated_usage_cost_usd": 29.86,
+      "rate_label": "$0.59 / 1,000 credits",
+      "plan_floor": "$59/mo (100,000 credits)",
       "pricing_url": "https://www.firecrawl.dev/pricing",
-      "note": "Firecrawl bills dynamic credits that vary with task complexity, so usage is summed from the creditsUsed each run reports rather than assumed: 50,615 credits across 300 companies, a mean of 169 and a median of 153, with the most expensive single company costing 775. Priced at the Standard plan rate of $83 per 100,000 credits."
+      "note": "Firecrawl bills dynamic credits that vary with task complexity, so usage is summed from the creditsUsed each run reports rather than assumed: 50,615 credits across 300 companies, a mean of 169 and a median of 153, with the most expensive single company costing 775. Priced at $59 per 100,000 credits."
+    },
+    {
+      "provider_slug": "firecrawl-spark-2",
+      "endpoint": "POST /v2/agent",
+      "configuration": "model=spark-2 · JSON schema · maxCredits capped per run",
+      "billing_basis": "Dynamic credits per agent run; observed creditsUsed",
+      "observed_usage": 15065,
+      "usage_label": "15,065 credits",
+      "estimated_usage_cost_usd": 8.89,
+      "rate_label": "$0.59 / 1,000 credits",
+      "plan_floor": "$59/mo (100,000 credits)",
+      "pricing_url": "https://www.firecrawl.dev/pricing",
+      "note": "Observed usage is the 15,065 credits reported across the successful Spark 2 responses in the 300-company enrichment run; one timed-out case reported no usage. Priced at $59 per 100,000 credits."
     },
     {
       "provider_slug": "seltz-companies",

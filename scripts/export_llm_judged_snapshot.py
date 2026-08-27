@@ -7,7 +7,7 @@ The benchmark is two boards:
   freshness   rounds in the trailing 30 days, one dated snapshot per cycle
 
 Both are written to data/latest-funding.json under ``boards``. Each freshness
-snapshot's cells additionally go to data/freshness/<YYYY-MM>.json, indexed from
+snapshot's cells additionally go to a unique dated file under data/freshness/, indexed from
 the combined file, so the combined file stays bounded as snapshots accumulate
 while every snapshot remains individually reproducible.
 
@@ -20,12 +20,11 @@ import argparse
 import csv
 import json
 import os
+import re
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
-
-from supabase import create_client
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data/latest-funding.json"
@@ -187,6 +186,19 @@ def datasets_for(client: Any, family: str) -> list[dict[str, Any]]:
     return sorted(rows, key=lambda d: (d.get("window_end") or "", d["slug"]))
 
 
+def freshness_label(dataset: dict[str, Any]) -> str:
+    """Return a stable, collision-safe filename label for a freshness dataset.
+
+    The first published snapshots used month slugs such as ``...-2026-08``;
+    preserve those paths. Newer snapshots carry a full date, such as
+    ``...-2026-08-26``, so two cycles in one month cannot overwrite each other.
+    """
+    match = re.search(r"(\d{4}-\d{2}(?:-\d{2})?)$", dataset["slug"])
+    if not match:
+        raise RuntimeError(f"freshness dataset slug has no date suffix: {dataset['slug']}")
+    return match.group(1)
+
+
 # Each freshness cohort is its own frozen input list. Publishing it alongside
 # the snapshot is what makes that snapshot re-runnable: the enrichment
 # inputs CSV describes a different set of companies, so without this a reader
@@ -226,6 +238,8 @@ def write_inputs_csv(path: Path, cases: list[dict]) -> None:
 
 
 def main() -> int:
+    from supabase import create_client
+
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--enrichment-slug", default=None, help="Override the enrichment dataset; defaults to the only funding-enrichment dataset.")
     parser.add_argument("--dry-run", action="store_true", help="Report what would be written without writing.")
@@ -247,10 +261,13 @@ def main() -> int:
     e_board = leaderboard(e_runs)
 
     snapshots, pooled_runs = [], []
+    snapshot_labels = [freshness_label(dataset) for dataset in freshness_sets]
+    if len(snapshot_labels) != len(set(snapshot_labels)):
+        raise RuntimeError(f"freshness datasets map to duplicate public paths: {snapshot_labels}")
     for dataset in freshness_sets:
         cases, runs = load_dataset(client, dataset)
         pooled_runs.extend(runs)
-        label = (dataset.get("window_end") or dataset["slug"])[:7]
+        label = freshness_label(dataset)
         path = FRESHNESS_DIR / f"{label}.json"
         payload = {
             "schema_version": SCHEMA_VERSION, "board": "freshness", "dataset_slug": dataset["slug"],

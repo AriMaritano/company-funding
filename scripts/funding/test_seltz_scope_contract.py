@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import unittest
+from unittest.mock import patch
 
 from funding import run_structured_web_research as runner
 
@@ -98,12 +99,42 @@ class SeltzAnswerParsing(unittest.TestCase):
 
 
 class FirecrawlRequest(unittest.TestCase):
+    def test_models_are_separate_providers(self) -> None:
+        self.assertEqual(runner.FIRECRAWL_SPARK_1_MINI_MODEL, "spark-1-mini")
+        self.assertEqual(runner.FIRECRAWL_SPARK_2_MODEL, "spark-2")
+        self.assertIn("firecrawl", runner.PROVIDERS)
+        self.assertIn("firecrawl-spark-2", runner.PROVIDERS)
+
     def test_credit_ceiling_is_explicit(self) -> None:
         """The API default is 2,500 per run, which is a runaway across a cohort."""
         self.assertLess(runner.FIRECRAWL_MAX_CREDITS, 2_500)
 
     def test_registered_with_its_own_key(self) -> None:
         self.assertEqual(runner.REQUIRED_ENV["firecrawl"], "FIRECRAWL_API_KEY")
+        self.assertEqual(runner.REQUIRED_ENV["firecrawl-spark-2"], "FIRECRAWL_API_KEY")
+
+    def test_provider_slug_selects_only_the_model(self) -> None:
+        calls: list[dict] = []
+
+        def fake_request(url: str, headers: dict, payload: dict | None = None, timeout: int = 180) -> dict:
+            calls.append({"url": url, "payload": payload, "timeout": timeout})
+            return {"status": "completed", "data": {"latest_stage": "Series B"}, "creditsUsed": 7}
+
+        with patch.dict("os.environ", {"FIRECRAWL_API_KEY": "test-key"}), patch.object(
+            runner, "request_json", fake_request
+        ):
+            mini, mini_raw = runner.PROVIDERS["firecrawl"](CASE)
+            spark_2, spark_2_raw = runner.PROVIDERS["firecrawl-spark-2"](CASE)
+
+        self.assertEqual(mini, spark_2)
+        self.assertEqual(calls[0]["payload"]["model"], "spark-1-mini")
+        self.assertEqual(calls[1]["payload"]["model"], "spark-2")
+        mini_payload = dict(calls[0]["payload"])
+        spark_2_payload = dict(calls[1]["payload"])
+        del mini_payload["model"], spark_2_payload["model"]
+        self.assertEqual(mini_payload, spark_2_payload)
+        self.assertEqual(mini_raw["model"], "spark-1-mini")
+        self.assertEqual(spark_2_raw["model"], "spark-2")
 
 
 if __name__ == "__main__":

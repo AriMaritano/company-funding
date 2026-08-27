@@ -7,7 +7,7 @@
     "2026-07-16",
     "2026-08-15"
   ],
-  "generated_at": "2026-08-17T16:01:06.545731+00:00",
+  "generated_at": "2026-08-27T16:46:08.154361+00:00",
   "case_count": 50,
   "cases": [
     {
@@ -1474,6 +1474,46 @@
     },
     {
       "case_slug": "freshness-2026-08_0d5e2f5f7f56d939",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1471,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:39+00:00",
+      "normalized": {
+        "latest_stage": "EQUITY",
+        "latest_date": "2026-08-13T20:36:02.000Z",
+        "latest_amount": 5000000000,
+        "total_raised": 38797000000,
+        "round_count": 17
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Stages differ, but amounts exactly match under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "exact_amount_match",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_0d5e2f5f7f56d939",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -2173,6 +2213,46 @@
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "incorrect",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_0e48d38aacdf2978",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1616,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:00+00:00",
+      "normalized": {
+        "latest_stage": "EQUITY",
+        "latest_date": "2026-07-22T18:50:44.000Z",
+        "latest_amount": 1700000000,
+        "total_raised": 1700000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Stages differ, but amounts exactly match under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "exact_amount_match",
           "reasoning_effort": "medium",
           "prompt_policy_revision": "funding-v2"
         }
@@ -2884,6 +2964,46 @@
     },
     {
       "case_slug": "freshness-2026-08_18ef7dc93bcaa138",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1704,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:17+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-31T21:11:03.000Z",
+        "latest_amount": 4000000,
+        "total_raised": 5200000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_18ef7dc93bcaa138",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -3578,6 +3698,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_1bd201679ba22ba0",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1326,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:57+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-07T11:01:44.000Z",
+        "latest_amount": 1000000,
+        "total_raised": 1000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -4293,6 +4453,46 @@
     },
     {
       "case_slug": "freshness-2026-08_2942cca96f1c069b",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1520,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:23+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_B",
+        "latest_date": "2026-08-11T11:54:00.000Z",
+        "latest_amount": 152000000,
+        "total_raised": 170588600,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series B matches under Rule 1.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_2942cca96f1c069b",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -4998,6 +5198,46 @@
     },
     {
       "case_slug": "freshness-2026-08_3041cb11c1075fea",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "not_found",
+      "latency_ms": 1503,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": "HTTP 404",
+      "queried_at": "2026-08-18T16:31:07+00:00",
+      "normalized": {
+        "latest_stage": null,
+        "latest_date": null,
+        "latest_amount": null,
+        "total_raised": null,
+        "round_count": null
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 0,
+        "stage_correct": 0,
+        "llm_judge": {
+          "reason": "Blank vendor does not match post-IPO equity under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "incorrect",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_3041cb11c1075fea",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -5693,6 +5933,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_30807c3ebedd8b4b",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 2360,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:41+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-28T05:00:00.000Z",
+        "latest_amount": 6000000,
+        "total_raised": 7810000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -6407,6 +6687,46 @@
     },
     {
       "case_slug": "freshness-2026-08_309dd412e38d9144",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 2032,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:24+00:00",
+      "normalized": {
+        "latest_stage": "EQUITY",
+        "latest_date": "2026-07-30T13:00:00.000Z",
+        "latest_amount": 8000000,
+        "total_raised": 8000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Stages differ, but amounts exactly match under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "exact_amount_match",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_309dd412e38d9144",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -7102,6 +7422,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series B.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_31400d5311a7b18b",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1317,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:29+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_B",
+        "latest_date": "2026-08-12T20:28:07.000Z",
+        "latest_amount": 45000000,
+        "total_raised": 80000000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series B matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -7818,6 +8178,46 @@
     },
     {
       "case_slug": "freshness-2026-08_33cd5e60cc4643e0",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 2437,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:28+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_B",
+        "latest_date": "2026-07-28T12:00:00.000Z",
+        "latest_amount": 45000000,
+        "total_raised": 82724887,
+        "round_count": 6
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series B matches under Rule 1.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_33cd5e60cc4643e0",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -8515,6 +8915,46 @@
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_36a7e905a2b7a264",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1244,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:21+00:00",
+      "normalized": {
+        "latest_stage": "EQUITY",
+        "latest_date": "2026-07-29T13:01:00.000Z",
+        "latest_amount": 12000000,
+        "total_raised": 12000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Stages differ, but amounts exactly match under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "exact_amount_match",
           "reasoning_effort": "medium",
           "prompt_policy_revision": "funding-v2"
         }
@@ -9227,6 +9667,46 @@
     },
     {
       "case_slug": "freshness-2026-08_3b1b9aa9f2c44f27",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1935,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:14+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_C",
+        "latest_date": "2025-04-16T10:53:45.000Z",
+        "latest_amount": 90000000,
+        "total_raised": 255000000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 0,
+        "llm_judge": {
+          "reason": "IPO and Series C differ; no Rule 7 rescue.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "incorrect",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_3b1b9aa9f2c44f27",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -9922,6 +10402,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series B.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_42598794d52c2aba",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1713,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:43+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_B",
+        "latest_date": "2026-07-14T06:00:00.000Z",
+        "latest_amount": 65000000,
+        "total_raised": 205000000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series B matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -10637,6 +11157,46 @@
     },
     {
       "case_slug": "freshness-2026-08_475c158620b65683",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1345,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:27+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-12T06:20:37.000Z",
+        "latest_amount": 1200000,
+        "total_raised": 1200000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_475c158620b65683",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -11331,6 +11891,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_50ee3d35e47308c6",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1546,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:14+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-10T02:52:27.000Z",
+        "latest_amount": 1290000,
+        "total_raised": 1290000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -12046,6 +12646,46 @@
     },
     {
       "case_slug": "freshness-2026-08_5f7cfddacf59b6e3",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1541,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:10+00:00",
+      "normalized": {
+        "latest_stage": "pre SEED",
+        "latest_date": "2026-07-15T13:47:55.000Z",
+        "latest_amount": 3881514,
+        "total_raised": 3881514,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Stages differ, but announcement dates exactly match under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "exact_date_match",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_5f7cfddacf59b6e3",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -12739,6 +13379,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Pre-Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_6764805852309f57",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1360,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:19+00:00",
+      "normalized": {
+        "latest_stage": "pre SEED",
+        "latest_date": "2026-07-20T10:07:57.000Z",
+        "latest_amount": 2290000,
+        "total_raised": 2290000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Pre-Seed matches after normalization.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -13443,6 +14123,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series C.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_6cfb3872282d2878",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1597,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:13+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_C",
+        "latest_date": "2026-07-16T07:00:00.000Z",
+        "latest_amount": 69880000,
+        "total_raised": 201860000,
+        "round_count": 4
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series C matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -14158,6 +14878,46 @@
     },
     {
       "case_slug": "freshness-2026-08_7825023f4407a3b4",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 8361,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:09+00:00",
+      "normalized": {
+        "latest_stage": "DEBT_FINANCING",
+        "latest_date": "2026-04-06T12:11:59.000Z",
+        "latest_amount": 150000000,
+        "total_raised": 317250000,
+        "round_count": 4
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 0,
+        "llm_judge": {
+          "reason": "IPO and debt financing differ; no Rule 7 rescue.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "incorrect",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_7825023f4407a3b4",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -14856,6 +15616,46 @@
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_786ee88fb2e8d016",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1532,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:20+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_B",
+        "latest_date": "2025-12-16T13:04:24.000Z",
+        "latest_amount": 84000000,
+        "total_raised": 255000000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 0,
+        "llm_judge": {
+          "reason": "IPO and Series B differ; no Rule 7 rescue.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "incorrect",
           "reasoning_effort": "medium",
           "prompt_policy_revision": "funding-v2"
         }
@@ -15569,6 +16369,46 @@
     },
     {
       "case_slug": "freshness-2026-08_7b789f1867830257",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "not_found",
+      "latency_ms": 1250,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": "HTTP 404",
+      "queried_at": "2026-08-18T16:30:49+00:00",
+      "normalized": {
+        "latest_stage": null,
+        "latest_date": null,
+        "latest_amount": null,
+        "total_raised": null,
+        "round_count": null
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 0,
+        "stage_correct": 0,
+        "llm_judge": {
+          "reason": "Blank vendor does not match venture_unknown under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "incorrect",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_7b789f1867830257",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -16263,6 +17103,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series B.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_7c45a6d001afa16b",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 2076,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:37+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_B",
+        "latest_date": "2026-07-30T14:00:00.000Z",
+        "latest_amount": 40000000,
+        "total_raised": 57000000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series B matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -16977,6 +17857,46 @@
     },
     {
       "case_slug": "freshness-2026-08_7d52607e80abed75",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1841,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:16+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-28T13:00:00.000Z",
+        "latest_amount": 5700000,
+        "total_raised": 5700000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed matches after normalization.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_7d52607e80abed75",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -17671,6 +18591,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series A.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_7f2ebc306970f90a",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1300,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:11+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_A",
+        "latest_date": "2026-07-28T20:48:01.000Z",
+        "latest_amount": 12000000,
+        "total_raised": 12000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series A matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -18387,6 +19347,46 @@
     },
     {
       "case_slug": "freshness-2026-08_801311baf6394ae5",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1521,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:08+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-11T15:56:48.000Z",
+        "latest_amount": 8500000,
+        "total_raised": 8500000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_801311baf6394ae5",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -19082,6 +20082,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_86b51253da429bbf",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1714,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:26+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-22T20:38:35.000Z",
+        "latest_amount": 8000000,
+        "total_raised": 8000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -19797,6 +20837,46 @@
     },
     {
       "case_slug": "freshness-2026-08_93ca87dfde4f108e",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1831,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:25+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-10T15:59:42.000Z",
+        "latest_amount": 2500000,
+        "total_raised": 3265382,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_93ca87dfde4f108e",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -20491,6 +21571,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series A.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_94264c4313183fb0",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1288,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:50+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_A",
+        "latest_date": "2026-07-13T06:00:00.000Z",
+        "latest_amount": 22000000,
+        "total_raised": 22000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series A matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -21206,6 +22326,46 @@
     },
     {
       "case_slug": "freshness-2026-08_9a66e0fd66a04bfc",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1461,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:22+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-13T12:48:56.000Z",
+        "latest_amount": 4770000,
+        "total_raised": 6860000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_9a66e0fd66a04bfc",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -21900,6 +23060,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_9d18077d27e06523",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1641,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:52+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-27T14:35:57.000Z",
+        "latest_amount": 2800000,
+        "total_raised": 2800000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -22615,6 +23815,46 @@
     },
     {
       "case_slug": "freshness-2026-08_9ee0605d91a78927",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1299,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:19+00:00",
+      "normalized": {
+        "latest_stage": "EQUITY",
+        "latest_date": "2026-07-24T09:15:00.000Z",
+        "latest_amount": 19000000,
+        "total_raised": 28380000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 0,
+        "llm_judge": {
+          "reason": "Equity lacks the required Series A letter; Rule 1 forbids rescue.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "incorrect",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_9ee0605d91a78927",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -23310,6 +24550,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_a06a6a1de4f4dbbc",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1283,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:20+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-16T20:15:47.000Z",
+        "latest_amount": 3380000,
+        "total_raised": 3380000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -24024,6 +25304,46 @@
     },
     {
       "case_slug": "freshness-2026-08_a1afb443d93cbb61",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1497,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:59+00:00",
+      "normalized": {
+        "latest_stage": "EQUITY",
+        "latest_date": "2026-07-16T08:00:00.000Z",
+        "latest_amount": 7400000,
+        "total_raised": 7400000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Stages differ, but amounts exactly match under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "exact_amount_match",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_a1afb443d93cbb61",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -24729,6 +26049,46 @@
     },
     {
       "case_slug": "freshness-2026-08_a2549f33238a5449",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1917,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:35+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_A",
+        "latest_date": "2026-07-28T12:08:00.000Z",
+        "latest_amount": 21000000,
+        "total_raised": 21000000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series A matches under Rule 1.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_a2549f33238a5449",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -25423,6 +26783,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_a2d825f309dadac4",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1602,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:55+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-09T14:19:06.000Z",
+        "latest_amount": 1100000,
+        "total_raised": 1600000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -26138,6 +27538,46 @@
     },
     {
       "case_slug": "freshness-2026-08_a3c0fe52c943e7cc",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1328,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:53+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-11T13:00:27.000Z",
+        "latest_amount": 4300000,
+        "total_raised": 6300000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_a3c0fe52c943e7cc",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -26842,6 +28282,46 @@
     },
     {
       "case_slug": "freshness-2026-08_aa6d3e23f3f2f716",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1683,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:05+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_C",
+        "latest_date": "2026-08-05T20:50:45.000Z",
+        "latest_amount": 250000000,
+        "total_raised": 714442417,
+        "round_count": 13
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series C matches under Rule 1.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_aa6d3e23f3f2f716",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -27536,6 +29016,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series C.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_b7b39cf92b3a21d5",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1680,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:45+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_C",
+        "latest_date": "2026-08-11T22:35:11.000Z",
+        "latest_amount": 90000000,
+        "total_raised": 213000000,
+        "round_count": 4
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series C matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -28251,6 +29771,46 @@
     },
     {
       "case_slug": "freshness-2026-08_c156a40b3f951830",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1589,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:03+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-17T05:00:00.000Z",
+        "latest_amount": 55000000,
+        "total_raised": 55000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_c156a40b3f951830",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -28945,6 +30505,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series A.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_c2ac1b92633ab582",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1508,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:16+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_A",
+        "latest_date": "2026-07-23T13:00:00.000Z",
+        "latest_amount": 152000000,
+        "total_raised": 152000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series A matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -29660,6 +31260,46 @@
     },
     {
       "case_slug": "freshness-2026-08_c91478a9c76a2eae",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 2589,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:33+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-21T13:00:00.000Z",
+        "latest_amount": 8000000,
+        "total_raised": 8000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_c91478a9c76a2eae",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -30364,6 +32004,46 @@
     },
     {
       "case_slug": "freshness-2026-08_cbd261e4e1395934",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1424,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:26+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-15T10:00:00.000Z",
+        "latest_amount": 300000000,
+        "total_raised": 300000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_cbd261e4e1395934",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -31058,6 +32738,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_d0e696a21cc1eeb8",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1539,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:47+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-16T10:00:00.000Z",
+        "latest_amount": 5000000,
+        "total_raised": 5000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -31774,6 +33494,46 @@
     },
     {
       "case_slug": "freshness-2026-08_d3e0b2cc53651978",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1725,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:31:30+00:00",
+      "normalized": {
+        "latest_stage": "pre SERIES_A",
+        "latest_date": "2026-07-23T10:30:17.000Z",
+        "latest_amount": 12300000,
+        "total_raised": 16950000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed and Pre-Series A are equivalent under Rule 2.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_d3e0b2cc53651978",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -32478,6 +34238,46 @@
     },
     {
       "case_slug": "freshness-2026-08_df53e1991f6c4ea9",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "not_found",
+      "latency_ms": 1531,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": "HTTP 404",
+      "queried_at": "2026-08-18T16:31:02+00:00",
+      "normalized": {
+        "latest_stage": null,
+        "latest_date": null,
+        "latest_amount": null,
+        "total_raised": null,
+        "round_count": null
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 0,
+        "stage_correct": 0,
+        "llm_judge": {
+          "reason": "Blank vendor does not match Pre-Seed under Rule 7.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "incorrect",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_df53e1991f6c4ea9",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -33172,6 +34972,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 1: both are Series A.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_e322ef54c4c06283",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 2583,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:12+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_A",
+        "latest_date": "2026-07-16T07:15:00.000Z",
+        "latest_amount": 20000000,
+        "total_raised": 52090000,
+        "round_count": 3
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series A matches under Rule 1.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "same_series_letter",
@@ -33888,6 +35728,46 @@
     },
     {
       "case_slug": "freshness-2026-08_ec5410329f36fbc9",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1313,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:56+00:00",
+      "normalized": {
+        "latest_stage": "pre SEED",
+        "latest_date": "2026-08-11T13:00:00.000Z",
+        "latest_amount": 3600000,
+        "total_raised": 3600000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Pre-Seed matches after normalization.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_ec5410329f36fbc9",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -34582,6 +36462,46 @@
         "stage_correct": 1,
         "llm_judge": {
           "reason": "Rule 7: Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_ede2851f05695cb0",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 2608,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:31+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-08-05T05:00:00.000Z",
+        "latest_amount": 6930000,
+        "total_raised": 8470000,
+        "round_count": 2
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
           "scoreable": true,
           "judge_model": "gpt-5.6",
           "decision_basis": "equivalent_stage",
@@ -35297,6 +37217,46 @@
     },
     {
       "case_slug": "freshness-2026-08_f97815f9af519d1b",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1746,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:18+00:00",
+      "normalized": {
+        "latest_stage": "SEED",
+        "latest_date": "2026-07-31T08:58:41.000Z",
+        "latest_amount": 12000000,
+        "total_raised": 12000000,
+        "round_count": 1
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Seed stages match.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "equivalent_stage",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_f97815f9af519d1b",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -36002,6 +37962,46 @@
     },
     {
       "case_slug": "freshness-2026-08_feacf55b20d551dd",
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "snapshot": "company-funding-freshness-2026-08",
+      "status": "ok",
+      "latency_ms": 1376,
+      "cost_units": null,
+      "cost_unit": null,
+      "error": null,
+      "queried_at": "2026-08-18T16:30:46+00:00",
+      "normalized": {
+        "latest_stage": "SERIES_C",
+        "latest_date": "2026-08-18T10:10:07.000Z",
+        "latest_amount": 700000000,
+        "total_raised": 1625360000,
+        "round_count": 5
+      },
+      "audit": {
+        "source": "live_api",
+        "funding_related_paths": null,
+        "prior_attempt_count": null,
+        "failure_reason": null,
+        "sources": [],
+        "reasoning_effort": null
+      },
+      "metrics": {
+        "stage_eligible": 1,
+        "stage_returned": 1,
+        "stage_correct": 1,
+        "llm_judge": {
+          "reason": "Series C matches under Rule 1.",
+          "scoreable": true,
+          "judge_model": "gpt-5.6",
+          "decision_basis": "same_series_letter",
+          "reasoning_effort": "medium",
+          "prompt_policy_revision": "funding-v2"
+        }
+      }
+    },
+    {
+      "case_slug": "freshness-2026-08_feacf55b20d551dd",
       "provider_slug": "ocean",
       "provider_name": "Ocean.io",
       "snapshot": "company-funding-freshness-2026-08",
@@ -36456,6 +38456,24 @@
       "rank": 6
     },
     {
+      "provider_slug": "fundable",
+      "provider_name": "Fundable",
+      "total_cases": 50,
+      "case_count": 50,
+      "snapshot_count": 1,
+      "cases_attempted": 50,
+      "cases_resolved": 47,
+      "resolution_rate_pct": 94.0,
+      "eligible_stage_cases": 50,
+      "correct_stage_count": 43,
+      "stage_correct_yield_pct": 86.0,
+      "stage_fill_rate_pct": 94.0,
+      "stage_accuracy_when_present_pct": 91.49,
+      "funding_field_coverage_pct": 94.0,
+      "avg_funding_fields_returned": 4.7,
+      "rank": 7
+    },
+    {
       "provider_slug": "crustdata",
       "provider_name": "Crustdata",
       "total_cases": 50,
@@ -36471,7 +38489,7 @@
       "stage_accuracy_when_present_pct": 89.13,
       "funding_field_coverage_pct": 74.0,
       "avg_funding_fields_returned": 3.7,
-      "rank": 7
+      "rank": 8
     },
     {
       "provider_slug": "fiber",
@@ -36489,7 +38507,7 @@
       "stage_accuracy_when_present_pct": 83.33,
       "funding_field_coverage_pct": 94.0,
       "avg_funding_fields_returned": 4.7,
-      "rank": 8
+      "rank": 9
     },
     {
       "provider_slug": "predictleads",
@@ -36507,7 +38525,7 @@
       "stage_accuracy_when_present_pct": 90.91,
       "funding_field_coverage_pct": 70.0,
       "avg_funding_fields_returned": 3.5,
-      "rank": 9
+      "rank": 10
     },
     {
       "provider_slug": "zoominfo",
@@ -36525,7 +38543,7 @@
       "stage_accuracy_when_present_pct": 86.67,
       "funding_field_coverage_pct": 90.4,
       "avg_funding_fields_returned": 4.52,
-      "rank": 10
+      "rank": 11
     },
     {
       "provider_slug": "seltz-news",
@@ -36543,7 +38561,7 @@
       "stage_accuracy_when_present_pct": 80.95,
       "funding_field_coverage_pct": 64.4,
       "avg_funding_fields_returned": 3.22,
-      "rank": 11
+      "rank": 12
     },
     {
       "provider_slug": "apollo",
@@ -36561,7 +38579,7 @@
       "stage_accuracy_when_present_pct": 68.18,
       "funding_field_coverage_pct": 72.0,
       "avg_funding_fields_returned": 3.6,
-      "rank": 12
+      "rank": 13
     },
     {
       "provider_slug": "seltz-companies",
@@ -36579,7 +38597,7 @@
       "stage_accuracy_when_present_pct": 34.88,
       "funding_field_coverage_pct": 81.6,
       "avg_funding_fields_returned": 4.08,
-      "rank": 13
+      "rank": 14
     },
     {
       "provider_slug": "ocean",
@@ -36597,7 +38615,7 @@
       "stage_accuracy_when_present_pct": 26.47,
       "funding_field_coverage_pct": 36.0,
       "avg_funding_fields_returned": 1.8,
-      "rank": 14
+      "rank": 15
     },
     {
       "provider_slug": "company-enrich",
@@ -36615,7 +38633,7 @@
       "stage_accuracy_when_present_pct": 25.93,
       "funding_field_coverage_pct": 50.0,
       "avg_funding_fields_returned": 2.5,
-      "rank": 15
+      "rank": 16
     },
     {
       "provider_slug": "people-data-labs",
@@ -36633,7 +38651,7 @@
       "stage_accuracy_when_present_pct": 22.58,
       "funding_field_coverage_pct": 48.8,
       "avg_funding_fields_returned": 2.44,
-      "rank": 16
+      "rank": 17
     },
     {
       "provider_slug": "explorium",
@@ -36651,7 +38669,7 @@
       "stage_accuracy_when_present_pct": 17.65,
       "funding_field_coverage_pct": 37.6,
       "avg_funding_fields_returned": 1.88,
-      "rank": 17
+      "rank": 18
     }
   ]
 }
