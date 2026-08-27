@@ -87,7 +87,10 @@ def leaderboard(runs: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
     rows = []
     for slug, provider in sorted(by_provider.items()):
-        case_count = len({run["case_slug"] for run in provider})
+        # Freshness reuses some company identities across dated snapshots. Each
+        # query is a separate measurement, so denominators count provider cells
+        # (company observations), not distinct case slugs pooled across time.
+        case_count = len(provider)
         snapshot_count = len({run.get("snapshot") for run in provider if run.get("snapshot")}) or 1
         eligible = sum(run["metrics"]["stage_eligible"] for run in provider)
         returned = sum(run["metrics"]["stage_returned"] for run in provider)
