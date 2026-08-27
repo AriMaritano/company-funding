@@ -13,11 +13,7 @@ It is designed for GTM account prioritization and qualification: companies with 
 
 ### Denominators differ per provider, on purpose
 
-A provider is scored against the companies it was actually measured on, never a board-wide total. A vendor added later is measured on more of the enrichment cohort than one added earlier, and vendors join freshness at different snapshots. Every leaderboard row therefore carries its own `case_count` and `snapshot_count`, and the verifier asserts they reconcile against that provider's own cells.
-
-The production `2026-08-26` snapshot currently contains the newly promoted
-Firecrawl Spark 2 arm only. The other vendors were measured outside production
-but are not redistributed in this repository until their cells are promoted.
+A provider is scored against the company observations it was actually measured on, never a board-wide total. A vendor added later is measured on more of the enrichment cohort than one added earlier, and vendors join freshness at different snapshots. If the same company appears in two dated freshness snapshots, those are two measurements rather than one deduplicated company. Every leaderboard row therefore carries its own `case_count` and `snapshot_count`, and the verifier asserts they reconcile against that provider's own cells.
 
 ## Evaluated fields and headline metric
 

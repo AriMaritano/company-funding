@@ -63,10 +63,13 @@ def check_leaderboard(label: str, runs: list[dict], rows: list[dict]) -> None:
     for row in rows:
         provider = by_provider[row["provider_slug"]]
         slug = row["provider_slug"]
-        case_count = len({run["case_slug"] for run in provider})
+        # The same company can appear in multiple dated freshness snapshots.
+        # Those are separate measurements and must not collapse when pooled.
+        case_count = len(provider)
         # The substantive check: each provider's denominator is its own case
-        # count. Enrichment holds cases only the late joiners were run against,
-        # so a board-wide denominator would understate everyone else.
+        # observation count. Enrichment holds cases only the late joiners were
+        # run against, and freshness may re-measure a company in a later dated
+        # snapshot, so a board-wide or identity-deduplicated denominator is wrong.
         assert row["case_count"] == case_count, f"{label}/{slug}: case_count {row['case_count']} != {case_count} measured"
         assert row["eligible_stage_cases"] == sum(r["metrics"]["stage_eligible"] for r in provider), f"{label}/{slug}: eligible mismatch"
         assert row["correct_stage_count"] == sum(r["metrics"]["stage_correct"] for r in provider), f"{label}/{slug}: correct mismatch"
