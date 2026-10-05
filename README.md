@@ -40,7 +40,7 @@ The other four fields contribute to the separate returned-data coverage metric; 
 | `data/funding/pricing-v1.json` | Dated public entry-tier cost assumptions used for the estimated USD cost display |
 | `scripts/funding/run_funding_benchmark.py` | Credit-safe, resumable provider runner |
 | `scripts/funding/smoke_test_funding_providers.py` | Small contract smoke test for the original endpoint adapters |
-| `scripts/funding/run_structured_web_research.py` | Resumable runner for every natural-language arm: Exa search, Exa Agent, Parallel Task and Responses, Seltz, Firecrawl; raw outputs remain local |
+| `scripts/funding/run_structured_web_research.py` | Resumable runner for every natural-language arm: Exa search, Exa Agent, Parallel Task and Responses, Seltz, Firecrawl, Tako Answer; raw outputs remain local |
 | `scripts/funding/run_crustdata_funding_batch.py` | Credit-safe submit/poll runner for Crustdata's 300-company batch enrichment |
 | `scripts/funding/run_zoominfo_funding.py` | Credit-safe, resumable ZoomInfo GTM CLI runner; serial 10-domain requests with a two-second interval |
 | `scripts/funding/score_funding_stage_dry_run.py` | Transparent latest-stage taxonomy and offline scoring report |
@@ -87,8 +87,9 @@ question in natural language: `exa` and `exa-instant` (Search API at two search
 types), `exa-agent` (Agent API), `parallel` (Task API) and
 `parallel-responses-medium` (Responses API), `seltz-companies` and `seltz-news`
 (Answer API at two search scopes), and `firecrawl` and `firecrawl-spark-2`
-(Agent API with Spark 1 Mini and Spark 2 respectively). All of them send the
-same instruction and the same output schema, so the endpoint or its one varied
+(Agent API with Spark 1 Mini and Spark 2 respectively), and `tako-answer-fast`
+and `tako-answer-deep` (Answer API at two efforts). All of them send the same
+instruction and the same output schema, so the endpoint or its one varied
 parameter is the only difference between arms; the contract tests beside the
 runner assert that.
 
