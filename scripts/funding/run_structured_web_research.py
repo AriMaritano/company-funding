@@ -31,7 +31,7 @@ from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[2]
-INPUT = ROOT / "data" / "funding" / "company-funding-benchmark-inputs-v1.csv"
+INPUT = ROOT / "data" / "funding" / "company-funding-inputs-v1.csv"
 RAW_ROOT = ROOT / "data" / "funding" / "provider-runs-v2" / "raw"
 OUTPUT_SCHEMA = {
     "type": "object",
