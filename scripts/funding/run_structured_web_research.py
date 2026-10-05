@@ -88,6 +88,17 @@ EXA_AGENT_EFFORT = "medium"
 # itself the cost control: medium is a flat $0.10 per request.
 EXA_AGENT_POLL_ATTEMPTS = 120
 EXA_AGENT_TIMEOUT_S = 600
+
+# Tako's Answer API is measured at two efforts with the same query and schema,
+# so effort is the only variable; see test_tako_answer_contract.py. Both fill
+# output_schema; 'instant' rejects it with a 400.
+TAKO_ANSWER_URL = "https://tako.com/api/v1/answer/"
+TAKO_ANSWER_DEFAULT_EFFORT = "fast"
+TAKO_ANSWER_EFFORTS = ("fast", "deep")
+# The 300-company fast run's slowest call took 86 s; this hands a hung request
+# back well before request_json's four attempts add up.
+TAKO_ANSWER_TIMEOUT_S = 120
+TAKO_ANSWER_USER_AGENT = "openbenchmarks-company-funding/1.0"
 SELTZ_SYSTEM_PROMPT = (
     "You are a funding data extraction service. Answer only with a single JSON object "
     "matching this schema, and nothing else: "
@@ -438,6 +449,44 @@ def exa_agent(case: dict[str, str], effort: str = EXA_AGENT_EFFORT) -> tuple[dic
     }
 
 
+def tako_answer_payload(case: dict[str, str], effort: str) -> dict[str, Any]:
+    """Request body for one Tako Answer arm. Effort is the only per-arm difference."""
+    return {"query": instruction(case), "effort": effort, "output_schema": OUTPUT_SCHEMA}
+
+
+def tako_answer(case: dict[str, str], effort: str = TAKO_ANSWER_DEFAULT_EFFORT) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Tako Answer API for one effort.
+
+    Structured output rides beside the prose answer. When it is absent,
+    ``structured_output_error.code`` names why:
+
+    - ``validation_failed``: the model couldn't produce schema-valid output,
+      but the answer still ships. As with Seltz and Parallel Responses, that
+      answer is recorded verbatim as unparsed_text in an ok cell.
+    - ``arbiter_failed``: retrieval found nothing, so the answer is empty, or
+      the answering model call failed. The cell fails, so a resume retries it.
+    - ``internal_error``: a Tako bug. The answer and cards still ship, but the
+      cell fails, so a resume retries it rather than scoring the bug.
+    """
+    headers = {
+        "X-API-Key": os.environ["TAKO_API_KEY"],
+        "Content-Type": "application/json",
+        # Cloudflare in front of tako.com answers urllib's default
+        # "Python-urllib/3.x" agent with a 403 (error 1010) on every call.
+        "User-Agent": TAKO_ANSWER_USER_AGENT,
+    }
+    response = request_json(TAKO_ANSWER_URL, headers, tako_answer_payload(case, effort), timeout=TAKO_ANSWER_TIMEOUT_S)
+    raw = {**response, "_request_effort": effort}
+    structured = response.get("structured_output")
+    if isinstance(structured, dict):
+        return structured, raw
+    error = response.get("structured_output_error") or {}
+    answer = response.get("answer")
+    if error.get("code") != "validation_failed" or not isinstance(answer, str) or not answer.strip():
+        raise ValueError(f"Tako {effort} returned no structured output: {error}")
+    return {"unparsed_text": answer}, raw
+
+
 PROVIDERS = {
     "exa": exa,
     "exa-instant": partial(exa, search_type="instant"),
@@ -448,6 +497,8 @@ PROVIDERS = {
     "firecrawl-spark-2": partial(firecrawl, model=FIRECRAWL_SPARK_2_MODEL),
     "seltz-companies": partial(seltz, scope="companies"),
     "seltz-news": partial(seltz, scope="news"),
+    "tako-answer-fast": partial(tako_answer, effort="fast"),
+    "tako-answer-deep": partial(tako_answer, effort="deep"),
 }
 REQUIRED_ENV = {
     "exa": "EXA_API_KEY", "exa-instant": "EXA_API_KEY", "exa-agent": "EXA_API_KEY",
@@ -455,6 +506,7 @@ REQUIRED_ENV = {
     "parallel-responses-medium": "PARALLEL_API_KEY",
     "firecrawl": "FIRECRAWL_API_KEY", "firecrawl-spark-2": "FIRECRAWL_API_KEY",
     "seltz-companies": "SELTZ_API_KEY", "seltz-news": "SELTZ_API_KEY",
+    "tako-answer-fast": "TAKO_API_KEY", "tako-answer-deep": "TAKO_API_KEY",
 }
 DEFAULT_CONCURRENCY = {
     "exa": 12, "exa-instant": 12, "parallel": 8, "parallel-responses-medium": 8,
@@ -462,6 +514,8 @@ DEFAULT_CONCURRENCY = {
     # test shows what each vendor tolerates.
     "exa-agent": 4, "firecrawl": 4, "firecrawl-spark-2": 4,
     "seltz-companies": 6, "seltz-news": 6,
+    # 4 ran the 300-company cohort with no rate-limit or timeout errors.
+    "tako-answer-fast": 4, "tako-answer-deep": 4,
 }
 
 
